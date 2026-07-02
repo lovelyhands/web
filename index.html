@@ -822,20 +822,20 @@
           <div class="grid sm:grid-cols-2 gap-4">
             <div>
               <label class="block text-xs font-semibold text-on-muted uppercase tracking-wide mb-1.5">Your name *</label>
-              <input type="text" required placeholder="e.g. Margaret" class="w-full px-4 py-2.5 bg-cream/40 border border-outline-var rounded-xl text-sm text-dark placeholder-on-muted/50 focus:border-primary outline-none transition-colors"/>
+              <input type="text" name="name" required placeholder="e.g. Margaret" class="w-full px-4 py-2.5 bg-cream/40 border border-outline-var rounded-xl text-sm text-dark placeholder-on-muted/50 focus:border-primary outline-none transition-colors"/>
             </div>
             <div>
               <label class="block text-xs font-semibold text-on-muted uppercase tracking-wide mb-1.5">Phone *</label>
-              <input type="tel" required placeholder="021 xxx xxxx" class="w-full px-4 py-2.5 bg-cream/40 border border-outline-var rounded-xl text-sm text-dark placeholder-on-muted/50 focus:border-primary outline-none transition-colors"/>
+              <input type="tel" name="phone" required placeholder="021 xxx xxxx" class="w-full px-4 py-2.5 bg-cream/40 border border-outline-var rounded-xl text-sm text-dark placeholder-on-muted/50 focus:border-primary outline-none transition-colors"/>
             </div>
           </div>
           <div>
             <label class="block text-xs font-semibold text-on-muted uppercase tracking-wide mb-1.5">Email</label>
-            <input type="email" placeholder="your@email.com" class="w-full px-4 py-2.5 bg-cream/40 border border-outline-var rounded-xl text-sm text-dark placeholder-on-muted/50 focus:border-primary outline-none transition-colors"/>
+            <input type="email" name="email" placeholder="your@email.com" class="w-full px-4 py-2.5 bg-cream/40 border border-outline-var rounded-xl text-sm text-dark placeholder-on-muted/50 focus:border-primary outline-none transition-colors"/>
           </div>
           <div>
             <label class="block text-xs font-semibold text-on-muted uppercase tracking-wide mb-1.5">Who is this for?</label>
-            <select class="w-full px-4 py-2.5 bg-cream/40 border border-outline-var rounded-xl text-sm text-dark focus:border-primary outline-none transition-colors">
+            <select name="who_for" class="w-full px-4 py-2.5 bg-cream/40 border border-outline-var rounded-xl text-sm text-dark focus:border-primary outline-none transition-colors">
               <option value="">Please select…</option>
               <option>For myself</option>
               <option>For a parent / family member</option>
@@ -845,7 +845,7 @@
           </div>
           <div>
             <label class="block text-xs font-semibold text-on-muted uppercase tracking-wide mb-1.5">How can we help?</label>
-            <textarea rows="3" placeholder="Tell us a little about what you need…" class="w-full px-4 py-2.5 bg-cream/40 border border-outline-var rounded-xl text-sm text-dark placeholder-on-muted/50 focus:border-primary outline-none transition-colors resize-none"></textarea>
+            <textarea name="message" rows="3" placeholder="Tell us a little about what you need…" class="w-full px-4 py-2.5 bg-cream/40 border border-outline-var rounded-xl text-sm text-dark placeholder-on-muted/50 focus:border-primary outline-none transition-colors resize-none"></textarea>
           </div>
           <div class="flex items-start gap-2.5">
             <input type="checkbox" required id="consent" class="mt-0.5 h-4 w-4 border-outline rounded accent-primary"/>
@@ -923,8 +923,19 @@
 
 <script>
   // Scroll reveal
-  const obs = new IntersectionObserver(es => es.forEach(e => { if(e.isIntersecting) e.target.classList.add('in'); }), { threshold:0.07, rootMargin:'0px 0px -25px 0px' });
-  document.querySelectorAll('.fu').forEach(el => obs.observe(el));
+  const fuEls = document.querySelectorAll('.fu');
+  if ('IntersectionObserver' in window) {
+    const obs = new IntersectionObserver((entries, o) => entries.forEach(e => {
+      if (e.isIntersecting) { e.target.classList.add('in'); o.unobserve(e.target); }
+    }), { threshold:0, rootMargin:'0px 0px 120px 0px' });
+    fuEls.forEach(el => obs.observe(el));
+    // Failsafe: reveal anything already on screen shortly after load, in case a trigger is missed
+    window.addEventListener('load', () => setTimeout(() => {
+      fuEls.forEach(el => { if (el.getBoundingClientRect().top < window.innerHeight) el.classList.add('in'); });
+    }, 400));
+  } else {
+    fuEls.forEach(el => el.classList.add('in'));
+  }
 
   // Mobile nav
   document.getElementById('menu-btn').addEventListener('click', () => document.getElementById('mobile-menu').classList.toggle('hidden'));
@@ -945,11 +956,30 @@
   // Nav shadow on scroll
   window.addEventListener('scroll', () => document.getElementById('nav').style.boxShadow = window.scrollY > 20 ? '0 2px 20px rgba(46,37,69,0.10)' : '');
 
-  // Form submit (demo, connect to Formspree or similar)
-  function handleSubmit(e) {
+  // Form submit via Formspree. Replace the endpoint below with your own Formspree form URL.
+  const FORMSPREE_ENDPOINT = 'https://formspree.io/f/YOUR_FORM_ID';
+  async function handleSubmit(e) {
     e.preventDefault();
-    document.getElementById('contact-form').classList.add('hidden');
-    document.getElementById('form-success').classList.remove('hidden');
+    const form = document.getElementById('contact-form');
+    const btn = form.querySelector('button[type="submit"]');
+    btn.disabled = true;
+    try {
+      const res = await fetch(FORMSPREE_ENDPOINT, {
+        method: 'POST',
+        body: new FormData(form),
+        headers: { 'Accept': 'application/json' }
+      });
+      if (res.ok) {
+        form.classList.add('hidden');
+        document.getElementById('form-success').classList.remove('hidden');
+      } else {
+        btn.disabled = false;
+        alert('Sorry, something went wrong. Please call or text us on 022 546 0716.');
+      }
+    } catch (err) {
+      btn.disabled = false;
+      alert('Sorry, something went wrong. Please call or text us on 022 546 0716.');
+    }
   }
 </script>
 
@@ -1276,9 +1306,9 @@
       const waWrap = document.createElement('div');
       waWrap.style.cssText = 'padding:12px;border-top:1px solid #EAE6F5;background:#fff;';
 
-      const concernMsg = profile.concern ? `\n\n💬 What's on my mind: "${profile.concern}"` : '';
+      const concernMsg = profile.concern ? `\n\nWhat's on my mind: "${profile.concern}"` : '';
       const waMsg = encodeURIComponent(
-        `Hi Lovely Hands! 👋 My name is ${profile.name} and I'm reaching out from ${profile.suburb}.\n\nI'm looking for: ${services}\nThis is for: ${profile.for_whom}\nBest number: ${profile.phone}${concernMsg}\n\n(Sent via LovelyBot 💛)`
+        `Hi Lovely Hands, my name is ${profile.name} and I'm reaching out from ${profile.suburb}.\n\nI'm looking for: ${services}\nThis is for: ${profile.for_whom}\nBest number: ${profile.phone}${concernMsg}\n\n(Sent via LovelyBot)`
       );
 
       const waBtn = document.createElement('a');
