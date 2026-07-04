@@ -941,12 +941,21 @@
   document.getElementById('menu-btn').addEventListener('click', () => document.getElementById('mobile-menu').classList.toggle('hidden'));
   document.querySelectorAll('#mobile-menu a').forEach(a => a.addEventListener('click', () => document.getElementById('mobile-menu').classList.add('hidden')));
 
-  // Ensure any in-page link reveals its target section, even if the fade-in has not triggered yet
-  document.querySelectorAll('a[href^="#"]').forEach(a => a.addEventListener('click', () => {
-    const id = a.getAttribute('href').slice(1);
-    if (!id) return;
-    const t = document.getElementById(id);
-    if (t) { t.classList.add('in'); t.querySelectorAll('.fu').forEach(el => el.classList.add('in')); }
+  // Reliable in-page scrolling for all anchor links (fixes flaky jumps on mobile) with fixed-nav offset
+  document.querySelectorAll('a[href^="#"]').forEach(a => a.addEventListener('click', function(e){
+    const href = a.getAttribute('href');
+    if (!href || href === '#') return;
+    const t = document.getElementById(href.slice(1));
+    if (!t) return;
+    e.preventDefault();
+    t.classList.add('in');
+    t.querySelectorAll('.fu').forEach(el => el.classList.add('in'));
+    const nav = document.getElementById('nav');
+    const navH = (nav ? nav.offsetHeight : 0) + 10;
+    const y = t.getBoundingClientRect().top + window.pageYOffset - navH;
+    window.scrollTo({ top: y, behavior: 'smooth' });
+    const mm = document.getElementById('mobile-menu');
+    if (mm) mm.classList.add('hidden');
   }));
 
   // FAQ accordion
