@@ -915,7 +915,7 @@
           <strong style="color:rgba(255,255,255,0.5);">Our promise &amp; scope:</strong> Lovely Hands provides household support and social companionship services only, not medical, nursing, clinical, or personal care of any kind. We do not administer medications, assist with bathing, toileting, dressing or lifting, perform clinical assessments, or provide any regulated health service. Our visits are designed to support comfortable, independent home life and to complement professional healthcare, never to replace it. If you or your family member requires medical or personal care, please consult your GP or Health New Zealand / Te Whatu Ora on <a href="tel:0800611116" style="color:rgba(255,255,255,0.45);">0800 611 116</a>. Lovely Hands holds public liability insurance and operates as a sole trader in New Zealand.
         </p>
       </div>
-      <p class="text-xs" style="color:rgba(255,255,255,0.22);">© 2026 Lovely Hands. All prices NZD, ex-GST. <span class="mx-1">·</span> Auckland &amp; surroundings, New Zealand</p>
+      <p class="text-xs" style="color:rgba(255,255,255,0.22);">© 2026 Lovely Hands. <span class="mx-1">·</span> Auckland &amp; surroundings, New Zealand</p>
     </div>
   </div>
 </footer>
@@ -940,6 +940,14 @@
   // Mobile nav
   document.getElementById('menu-btn').addEventListener('click', () => document.getElementById('mobile-menu').classList.toggle('hidden'));
   document.querySelectorAll('#mobile-menu a').forEach(a => a.addEventListener('click', () => document.getElementById('mobile-menu').classList.add('hidden')));
+
+  // Ensure any in-page link reveals its target section, even if the fade-in has not triggered yet
+  document.querySelectorAll('a[href^="#"]').forEach(a => a.addEventListener('click', () => {
+    const id = a.getAttribute('href').slice(1);
+    if (!id) return;
+    const t = document.getElementById(id);
+    if (t) { t.classList.add('in'); t.querySelectorAll('.fu').forEach(el => el.classList.add('in')); }
+  }));
 
   // FAQ accordion
   document.querySelectorAll('.faq-btn').forEach(btn => {
@@ -1017,6 +1025,18 @@
   #lb-messages::-webkit-scrollbar { width:4px; }
   #lb-messages::-webkit-scrollbar-track { background:transparent; }
   #lb-messages::-webkit-scrollbar-thumb { background:#D4CCE8; border-radius:4px; }
+
+  /* Larger, easier-to-read text for older visitors */
+  .lb-bubble-bot, .lb-bubble-user { font-size:1rem !important; line-height:1.6 !important; }
+  #lb-input { font-size:1rem !important; }
+  .lb-chip { font-size:0.95rem !important; padding:8px 15px !important; }
+
+  /* Fit the chat window to small phone screens */
+  @media (max-width: 480px) {
+    #lb-container { bottom:14px !important; right:12px !important; }
+    #lb-window { width:calc(100vw - 24px) !important; max-width:calc(100vw - 24px) !important; }
+    #lb-messages { max-height:52vh !important; min-height:160px !important; }
+  }
 </style>
 
 <div id="lb-container" style="position:fixed;bottom:24px;right:24px;z-index:9999;display:flex;flex-direction:column;align-items:flex-end;gap:12px;">
