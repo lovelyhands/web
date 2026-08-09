@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Lovely Hands | Home Help &amp; Companionship, Auckland</title>
   <link rel="icon" href="assets/favicon.svg" type="image/svg+xml"/>
-  <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet"/>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@1,400;1,500;1,600&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet"/>
   <script src="https://cdn.tailwindcss.com?plugins=forms"></script>
   <script>
     tailwind.config = {
@@ -25,7 +25,7 @@
             'outline-var':  '#EAE6F5',
           },
           fontFamily: {
-            script: ['"Great Vibes"', 'cursive'],
+            script: ['"Playfair Display"', 'Georgia', 'serif'],
             body:   ['Poppins', 'system-ui', 'sans-serif'],
           },
           maxWidth: { container: '1200px' },
@@ -57,6 +57,9 @@
     .ha3{animation:fadeUp .9s cubic-bezier(.22,1,.36,1) .32s both}
     .ha4{animation:fadeUp .9s cubic-bezier(.22,1,.36,1) .46s both}
     .ha5{animation:fadeUp .9s cubic-bezier(.22,1,.36,1) .58s both}
+
+    /* Script headings — Playfair Display italic */
+    .font-script { font-style: italic; letter-spacing: -0.01em; }
 
     /* Nav */
     #nav { backdrop-filter:blur(14px); -webkit-backdrop-filter:blur(14px); }
@@ -234,9 +237,9 @@
           Auckland &amp; surroundings · Household support &amp; companionship
         </div>
 
-        <h1 class="ha2 font-script text-6xl sm:text-7xl lg:text-[5rem] leading-[1.05] text-dark mb-1">More Than</h1>
-        <h1 class="ha2 font-script text-6xl sm:text-7xl lg:text-[5rem] leading-[1.05] text-dark mb-3">Help at Home.</h1>
-        <h2 class="ha3 font-script text-4xl sm:text-5xl text-primary italic mb-6" style="font-style:normal;">A Friend by Your Side.</h2>
+        <h1 class="ha2 font-script text-5xl sm:text-7xl lg:text-[5rem] leading-[1.05] text-dark mb-1">More Than</h1>
+        <h1 class="ha2 font-script text-5xl sm:text-7xl lg:text-[5rem] leading-[1.05] text-dark mb-3">Help at Home.</h1>
+        <h2 class="ha3 font-script text-3xl sm:text-5xl text-primary italic mb-6" style="font-style:normal;">A Friend by Your Side.</h2>
 
         <p class="ha4 text-[1.05rem] text-on-muted leading-relaxed max-w-lg mb-8">
           Lovely Hands provides trusted household support and companionship that brings comfort, connection, and peace of mind to your everyday life.
@@ -299,7 +302,7 @@
           </div>
 
           <!-- Floating: insured badge -->
-          <div class="absolute -top-4 -right-4 bg-primary rounded-2xl shadow-xl px-4 py-3 flex items-center gap-2.5 z-20">
+          <div class="absolute -top-4 -right-4 bg-primary rounded-2xl shadow-xl px-4 py-3 hidden sm:flex items-center gap-2.5 z-20">
             <svg class="w-4 h-4 text-white" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M2.166 4.999A11.954 11.954 0 0010 1.944 11.954 11.954 0 0017.834 5c.11.65.166 1.32.166 2.001 0 5.225-3.34 9.67-8 11.317C5.34 16.67 2 12.225 2 7c0-.682.057-1.35.166-2.001zm11.541 3.708a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/></svg>
             <div>
               <p class="text-[11px] font-bold text-white">Fully Insured</p>
@@ -308,7 +311,7 @@
           </div>
 
           <!-- Floating: free visit badge -->
-          <div class="absolute -bottom-5 -left-4 bg-white rounded-2xl shadow-xl border border-outline-var px-5 py-3.5 flex items-center gap-3 z-20">
+          <div class="absolute -bottom-5 -left-4 bg-white rounded-2xl shadow-xl border border-outline-var px-5 py-3.5 hidden sm:flex items-center gap-3 z-20">
             <div class="w-9 h-9 bg-gold-soft rounded-xl flex items-center justify-center flex-shrink-0">
               <svg class="w-5 h-5 text-gold" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
             </div>
@@ -362,7 +365,7 @@
             loading="lazy"
           />
         </div>
-        <div class="absolute -bottom-5 -right-4 bg-white rounded-2xl shadow-xl border border-outline-var p-4 max-w-[190px] z-10">
+        <div class="absolute -bottom-5 -right-4 bg-white rounded-2xl shadow-xl border border-outline-var p-4 max-w-[190px] z-10 hidden sm:block">
           <div class="flex items-center gap-2.5 mb-2.5">
             <div class="w-8 h-8 bg-primary-soft rounded-lg flex items-center justify-center flex-shrink-0">
               <svg class="w-4 h-4 text-primary" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M3.172 5.172a4 4 0 015.656 0L10 6.343l1.172-1.171a4 4 0 115.656 5.656L10 17.657l-6.828-6.829a4 4 0 010-5.656z" clip-rule="evenodd"/></svg>
@@ -779,92 +782,63 @@
             <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/></svg>
             Email lovelyhands.nz@gmail.com
           </a>
-          <a href="#enquiry-form" class="inline-flex items-center justify-center gap-2 bg-white hover:bg-cream text-primary font-semibold px-6 py-3 rounded-full transition-colors text-sm">
-            Send Enquiry →
+          <a href="https://wa.me/64225460716?text=Hi%20Lovely%20Hands!%20I%27d%20love%20to%20find%20out%20more%20about%20your%20services%20and%20arrange%20a%20free%20meet%20%26%20greet." target="_blank" rel="noopener" class="inline-flex items-center justify-center gap-2 bg-white hover:bg-cream text-primary font-semibold px-6 py-3 rounded-full transition-colors text-sm">
+            <svg class="w-4 h-4 text-[#25D366]" fill="currentColor" viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.124.556 4.118 1.528 5.845L.057 23.882l6.207-1.626A11.945 11.945 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.818a9.807 9.807 0 01-5.001-1.371l-.358-.213-3.714.973 1.001-3.619-.233-.372A9.79 9.79 0 012.182 12c0-5.42 4.398-9.818 9.818-9.818 5.42 0 9.818 4.398 9.818 9.818 0 5.42-4.398 9.818-9.818 9.818z"/></svg>
+            WhatsApp Us
           </a>
         </div>
       </div>
     </div>
 
-    <!-- Form -->
-    <div id="enquiry-form" class="grid lg:grid-cols-2 gap-10 items-start">
-      <div class="fu">
-        <span class="text-xs font-semibold text-primary tracking-widest uppercase">Book your visit</span>
-        <h2 class="font-script text-4xl text-dark mt-1 mb-4">Book a Free Meet &amp; Greet</h2>
-        <p class="text-on-muted text-sm leading-relaxed mb-6">Reach out and we'll arrange a no-obligation 30-minute visit at a time that suits you. Families are very welcome to enquire on behalf of a loved one.</p>
-        <div class="space-y-4">
-          <div class="flex items-center gap-4">
-            <div class="w-10 h-10 bg-primary-soft rounded-xl flex items-center justify-center flex-shrink-0">
-              <svg class="w-5 h-5 text-primary" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"/></svg>
-            </div>
-            <div><p class="text-xs text-on-muted">Phone / Text</p><a href="tel:+64225460716" class="text-sm font-semibold text-dark hover:text-primary">022 546 0716</a></div>
-          </div>
-          <div class="flex items-center gap-4">
-            <div class="w-10 h-10 bg-primary-soft rounded-xl flex items-center justify-center flex-shrink-0">
-              <svg class="w-5 h-5 text-primary" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/></svg>
-            </div>
-            <div><p class="text-xs text-on-muted">Email</p><a href="mailto:lovelyhands.nz@gmail.com" class="text-sm font-semibold text-dark hover:text-primary">lovelyhands.nz@gmail.com</a></div>
-          </div>
-          <div class="flex items-center gap-4">
-            <div class="w-10 h-10 bg-primary-soft rounded-xl flex items-center justify-center flex-shrink-0">
-              <svg class="w-5 h-5 text-primary" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/><path stroke-linecap="round" stroke-linejoin="round" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/></svg>
-            </div>
-            <div><p class="text-xs text-on-muted">Service area</p><p class="text-sm font-semibold text-dark">Auckland &amp; surrounding areas</p></div>
-          </div>
-        </div>
+    <!-- Contact cards -->
+    <div id="enquiry-form" class="fu max-w-2xl mx-auto">
+      <div class="text-center mb-10">
+        <span class="text-xs font-semibold text-primary tracking-widest uppercase">Get in touch</span>
+        <h2 class="font-script text-4xl sm:text-5xl text-dark mt-1 mb-3">Book a Free Meet &amp; Greet</h2>
+        <p class="text-on-muted text-sm leading-relaxed max-w-md mx-auto">A relaxed 30-minute chat at your home — no cost, no commitment. We'd love to meet you.</p>
       </div>
 
-      <div class="fu bg-white rounded-3xl p-8 shadow-xl shadow-primary/8 border border-outline-var">
-        <h3 class="font-script text-2xl text-dark mb-1">Send an Enquiry</h3>
-        <p class="text-xs text-on-muted mb-5">We'll respond within 24 hours.</p>
-
-        <form id="contact-form" class="space-y-4" onsubmit="handleSubmit(event)">
-          <div class="grid sm:grid-cols-2 gap-4">
-            <div>
-              <label class="block text-xs font-semibold text-on-muted uppercase tracking-wide mb-1.5">Your name *</label>
-              <input type="text" name="name" required placeholder="e.g. Margaret" class="w-full px-4 py-2.5 bg-cream/40 border border-outline-var rounded-xl text-sm text-dark placeholder-on-muted/50 focus:border-primary outline-none transition-colors"/>
-            </div>
-            <div>
-              <label class="block text-xs font-semibold text-on-muted uppercase tracking-wide mb-1.5">Phone *</label>
-              <input type="tel" name="phone" required placeholder="021 xxx xxxx" class="w-full px-4 py-2.5 bg-cream/40 border border-outline-var rounded-xl text-sm text-dark placeholder-on-muted/50 focus:border-primary outline-none transition-colors"/>
-            </div>
-          </div>
-          <div>
-            <label class="block text-xs font-semibold text-on-muted uppercase tracking-wide mb-1.5">Email</label>
-            <input type="email" name="email" placeholder="your@email.com" class="w-full px-4 py-2.5 bg-cream/40 border border-outline-var rounded-xl text-sm text-dark placeholder-on-muted/50 focus:border-primary outline-none transition-colors"/>
-          </div>
-          <div>
-            <label class="block text-xs font-semibold text-on-muted uppercase tracking-wide mb-1.5">Who is this for?</label>
-            <select name="who_for" class="w-full px-4 py-2.5 bg-cream/40 border border-outline-var rounded-xl text-sm text-dark focus:border-primary outline-none transition-colors">
-              <option value="">Please select…</option>
-              <option>For myself</option>
-              <option>For a parent / family member</option>
-              <option>For a friend or neighbour</option>
-              <option>Other</option>
-            </select>
-          </div>
-          <div>
-            <label class="block text-xs font-semibold text-on-muted uppercase tracking-wide mb-1.5">How can we help?</label>
-            <textarea name="message" rows="3" placeholder="Tell us a little about what you need…" class="w-full px-4 py-2.5 bg-cream/40 border border-outline-var rounded-xl text-sm text-dark placeholder-on-muted/50 focus:border-primary outline-none transition-colors resize-none"></textarea>
-          </div>
-          <div class="flex items-start gap-2.5">
-            <input type="checkbox" required id="consent" class="mt-0.5 h-4 w-4 border-outline rounded accent-primary"/>
-            <label for="consent" class="text-xs text-on-muted leading-relaxed">I understand that Lovely Hands provides household support and companionship only, not medical, nursing, or personal care services.</label>
-          </div>
-          <button type="submit" class="w-full bg-primary hover:bg-dark text-white font-semibold py-3 rounded-xl transition-colors text-sm shadow-md shadow-primary/20 flex items-center justify-center gap-2">
-            Send Enquiry
-            <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg>
-          </button>
-        </form>
-
-        <div id="form-success" class="hidden text-center py-8">
-          <div class="w-14 h-14 bg-primary-soft rounded-full flex items-center justify-center mx-auto mb-4">
-            <svg class="w-7 h-7 text-primary" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>
-          </div>
-          <h4 class="font-script text-2xl text-dark mb-2">Thank you!</h4>
-          <p class="text-sm text-on-muted">We've received your enquiry and will be in touch within 24 hours to arrange your free meet &amp; greet.</p>
+      <!-- WhatsApp — primary CTA -->
+      <a href="https://wa.me/64225460716?text=Hi%20Lovely%20Hands!%20I%27d%20love%20to%20find%20out%20more%20about%20your%20services%20and%20arrange%20a%20free%20meet%20%26%20greet." target="_blank" rel="noopener"
+         class="flex items-center gap-5 bg-[#25D366] hover:bg-[#1ebe5d] text-white rounded-2xl px-7 py-5 mb-4 transition-colors shadow-lg shadow-[#25D366]/25 group">
+        <div class="w-12 h-12 bg-white/20 rounded-xl flex items-center justify-center flex-shrink-0">
+          <svg class="w-7 h-7" fill="currentColor" viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.124.556 4.118 1.528 5.845L.057 23.882l6.207-1.626A11.945 11.945 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.818a9.807 9.807 0 01-5.001-1.371l-.358-.213-3.714.973 1.001-3.619-.233-.372A9.79 9.79 0 012.182 12c0-5.42 4.398-9.818 9.818-9.818 5.42 0 9.818 4.398 9.818 9.818 0 5.42-4.398 9.818-9.818 9.818z"/></svg>
         </div>
+        <div class="flex-1">
+          <p class="font-semibold text-lg leading-tight">Message us on WhatsApp</p>
+          <p class="text-white/75 text-sm mt-0.5">Quickest way to get started — we usually reply within minutes</p>
+        </div>
+        <svg class="w-5 h-5 text-white/60 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7"/></svg>
+      </a>
+
+      <!-- Call + Email row -->
+      <div class="grid sm:grid-cols-2 gap-4 mb-8">
+        <a href="tel:+64225460716"
+           class="flex items-center gap-4 bg-white border border-outline-var hover:border-primary rounded-2xl px-6 py-4 transition-colors group shadow-sm">
+          <div class="w-10 h-10 bg-primary-soft rounded-xl flex items-center justify-center flex-shrink-0">
+            <svg class="w-5 h-5 text-primary" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"/></svg>
+          </div>
+          <div>
+            <p class="text-xs text-on-muted">Call or text</p>
+            <p class="text-sm font-semibold text-dark group-hover:text-primary transition-colors">022 546 0716</p>
+          </div>
+        </a>
+        <a href="mailto:lovelyhands.nz@gmail.com"
+           class="flex items-center gap-4 bg-white border border-outline-var hover:border-primary rounded-2xl px-6 py-4 transition-colors group shadow-sm">
+          <div class="w-10 h-10 bg-primary-soft rounded-xl flex items-center justify-center flex-shrink-0">
+            <svg class="w-5 h-5 text-primary" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/></svg>
+          </div>
+          <div>
+            <p class="text-xs text-on-muted">Email us</p>
+            <p class="text-sm font-semibold text-dark group-hover:text-primary transition-colors">lovelyhands.nz@gmail.com</p>
+          </div>
+        </a>
       </div>
+
+      <!-- Disclaimer -->
+      <p class="text-center text-xs text-on-muted/60 leading-relaxed">
+        Lovely Hands provides household support and companionship services only — not medical, nursing, or personal care.
+      </p>
     </div>
   </div>
 </section>
@@ -1039,6 +1013,24 @@
   .lb-bubble-bot, .lb-bubble-user { font-size:1rem !important; line-height:1.6 !important; }
   #lb-input { font-size:1rem !important; }
   .lb-chip { font-size:0.95rem !important; padding:8px 15px !important; }
+
+  /* ── Mobile refinements ── */
+  @media (max-width: 639px) {
+    /* Hero: tighter vertical rhythm on phones */
+    section.hero-bg { padding-top: 5.5rem; padding-bottom: 3rem; }
+    /* Hero image: cap height so it doesn't dominate on phones */
+    .hero-bg .aspect-\[4\/5\] { aspect-ratio: 4/3; }
+    /* Moments strip: stack to 1 col, square crops */
+    .moments-img { aspect-ratio: 1/1; }
+    /* Service cards: full-width on xs */
+    #services .grid { grid-template-columns: 1fr; }
+    /* Contact form: single column on xs */
+    #book .grid.sm\:grid-cols-2 { grid-template-columns: 1fr; }
+    /* Pull-quote: smaller script text */
+    #testimonial .font-script { font-size: 1.5rem; }
+    /* Nav CTA button: no gap issues */
+    #nav a[href="#book"] { padding-left: 1rem; padding-right: 1rem; }
+  }
 
   /* Fit the chat window to small phone screens */
   @media (max-width: 480px) {
